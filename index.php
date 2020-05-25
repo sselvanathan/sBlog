@@ -1,20 +1,20 @@
 <?php
 
-    use Controllers\Twig\TwigBuilder;
+use Router\Router;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
-    require 'vendor/autoload.php';
-    require 'autoload.php';
+require 'vendor/autoload.php';
+require 'autoload.php';
 
-    $twigBuilder = new TwigBuilder();
-    $loader = new \Twig\Loader\FilesystemLoader($twigBuilder->getTwigTemplatePath());
-    $twig = new \Twig\Environment($loader);
+$controller = (new Router())->getController();
 
-    try {
-        echo $twig->render(
-            $twigBuilder->getTwigTemplateName(),
-            $twigBuilder->getTwigData()
-        );
-    } catch (\Twig\Error\LoaderError $e) {
-    } catch (\Twig\Error\RuntimeError $e) {
-    } catch (\Twig\Error\SyntaxError $e) {
-    }
+try {
+    echo $controller->getTwigEnvironment()->render(
+        $controller->getTemplatePath(),
+        $controller->getTemplateData()
+    );
+} catch (LoaderError | RuntimeError  | SyntaxError $e) {
+    echo $e;
+}
