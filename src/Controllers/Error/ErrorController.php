@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Controllers\Error;
 
 use Common\Controller;
+use Common\ControllerInterface;
 
-class ErrorController extends Controller
+class ErrorController extends Controller implements ControllerInterface
 {
     public function __construct()
     {
@@ -14,10 +15,22 @@ class ErrorController extends Controller
             [
                 $this->setTemplatePath('error'),
                 $this->setTemplateData(
-                    ['module' => 'Error']
+                    [
+                        $this->getModule()
+                    ]
                 ),
             ]
         );
+    }
+
+    public function getModule()
+    {
+        return ['module' => 'Error'];
+    }
+
+    public function getTwigData()
+    {
+        // TODO: Implement getTwigData() method.
     }
 }
 

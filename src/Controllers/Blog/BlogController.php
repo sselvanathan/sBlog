@@ -6,7 +6,7 @@
 
     use Common\Controller;
     use Common\ControllerInterface;
-    use Database\Config\EntityManager;
+    use Database\Config\EntityManagerConfig;
     use Database\Entities\BlogEntity;
     use DateTime;
     use Doctrine\ORM\OptimisticLockException;
@@ -20,10 +20,17 @@
                 [
                     $this->setTemplatePath('home'),
                     $this->setTemplateData(
-                        ['module' => 'Blog']
+                        [
+                            $this->getModule()
+                        ]
                     ),
                 ]
             );
+        }
+
+        public function getModule()
+        {
+            return ['module' => 'Blog'];
         }
 
         public function getTwigData()
@@ -38,7 +45,7 @@
             $blog->setPost($post);
             $blog->setCreatedAt(new DateTime('now'));
 
-            $entityManager = (new EntityManager)->createEntityManager();
+            $entityManager = (new EntityManagerConfig)->createEntityManager();
 
             try {
                 $entityManager->persist($blog);
