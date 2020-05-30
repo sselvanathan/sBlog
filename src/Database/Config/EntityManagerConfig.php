@@ -8,7 +8,7 @@
     use Doctrine\ORM\ORMException;
     use Doctrine\ORM\Tools\Setup;
 
-    class EntityManager
+    class EntityManagerConfig
     {
         protected const ENTITIES_PATH = __DIR__ . '/../Entities';
         protected $proxyDir = null;
