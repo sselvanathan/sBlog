@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types=1);
+    declare(strict_types=1);
 
-namespace Controllers\Home;
+    namespace Controllers\Home;
 
     use Common\Controller;
     use Common\ControllerInterface;

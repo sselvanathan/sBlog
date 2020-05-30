@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
+{% include 'header/header.twig' %}
 <body>
-    {{ test }}
 <h1>This is an OOP Skeleton</h1>
+<div>{{ module }}</div>
+{% for BlogPost in allBlogPosts %}
+    <ul>
+    <li>{{ BlogPost.id|e }}</li>
+    <li>{{ BlogPost.title|e }}</li>
+    <li>{{ BlogPost.post|e }}</li>
+    </ul>
+{% endfor %}
 </body>
-</html>
+{% include 'footer/footer.twig' %}
