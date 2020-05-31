@@ -1,0 +1,15 @@
+{% include 'header/Header.twig' %}
+<body>
+<h1>This is an OOP Skeleton</h1>
+<div>{{ module }}</div>
+{% for blogPost in allBlogPosts %}
+    <a href="/blog/{{ blogPost.id }}">
+        <ul>
+            <li>{{ blogPost.id|e }}</li>
+            <li>{{ blogPost.title|e }}</li>
+            <li>{{ blogPost.post|e }}</li>
+        </ul>
+    </a>
+{% endfor %}
+</body>
+{% include 'footer/Footer.twig' %}

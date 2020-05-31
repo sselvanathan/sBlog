@@ -1,0 +1,10 @@
+{% include 'header/Header.twig' %}
+<body>
+<div>{{ module }}</div>
+        <ul>
+            <li>{{ blogPost.id|e }}</li>
+            <li>{{ blogPost.title|e }}</li>
+            <li>{{ blogPost.post|e }}</li>
+        </ul>
+</body>
+{% include 'footer/Footer.twig' %}

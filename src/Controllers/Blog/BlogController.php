@@ -11,26 +11,35 @@
     use DateTime;
     use Doctrine\ORM\OptimisticLockException;
     use Doctrine\ORM\ORMException;
+    use Doctrine\ORM\TransactionRequiredException;
 
     class BlogController extends Controller implements ControllerInterface
     {
-        public function __construct()
+        private const MODULE = 'Blog';
+
+        public function __construct(array $args)
         {
-            parent::__construct(
-                [
-                    $this->setTemplatePath('home'),
-                    $this->setTemplateData(
-                        [
-                            $this->getModule()
-                        ]
-                    ),
-                ]
-            );
+            try {
+                parent::__construct(
+                    [
+                        $this->setTemplatePath(self::MODULE),
+                        $this->setTemplateData(
+                            array_merge(
+                                $this->getModule(),
+                                $this->getBlogPostById($args)
+                            )
+                        ),
+                    ]
+                );
+            } catch (PostNotFoundException $e) {
+                parent:
+                $this->__construct($args);
+            }
         }
 
         public function getModule()
         {
-            return ['module' => 'Blog'];
+            return ['module' => self::MODULE];
         }
 
         public function getTwigData()
@@ -60,5 +69,29 @@
             }
 
             echo "Der Blog mit der ID " . $blog->getId() . " wurde erstellt";
+        }
+
+        /**
+         * @param array $args
+         * @return array[]
+         * @throws PostNotFoundException
+         */
+        public function getBlogPostById(array $args): array
+        {
+            $entityManager = (new EntityManagerConfig)->createEntityManager();
+            try {
+                $blogPostObject = $entityManager->find('Database\Entities\BlogEntity', (int)$args[0]);
+                $blogPost = [
+                    "id" => $blogPostObject->getId(),
+                    "title" => $blogPostObject->getTitle(),
+                    "post" => $blogPostObject->getPost(),
+                    "created_at" => $blogPostObject->getCreatedAt(),
+                ];
+                return ['blogPost' => $blogPost];
+            } catch (OptimisticLockException | TransactionRequiredException | ORMException $e) {
+                echo $e;
+            }
+
+            throw new PostNotFoundException();
         }
     }
