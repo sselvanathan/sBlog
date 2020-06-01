@@ -33,11 +33,11 @@
             switch ($this->controllerName) {
                 case '' :
                 case 'home' :
-                    return new HomeController();
+                    return new HomeController($this->args);
                 case 'blog':
-                    return new BlogController();
+                    return new BlogController($this->args);
                 default :
-                    return new ErrorController();
+                    return new ErrorController($this->args);
             }
         }
     }

@@ -10,11 +10,13 @@
 
     class HomeController extends Controller implements ControllerInterface
     {
-        public function __construct()
+        private const MODULE = 'Home';
+
+        public function __construct($args)
         {
             parent::__construct(
                 [
-                    $this->setTemplatePath('home'),
+                    $this->setTemplatePath(self::MODULE),
                     $this->setTemplateData(
                         array_merge(
                             $this->getModule(),
@@ -27,7 +29,7 @@
 
         public function getModule(): array
         {
-            return ['module' => 'Home'];
+            return ['module' => self::MODULE];
         }
 
         public function getTwigData(): array
@@ -40,7 +42,7 @@
         public function getAllBlogPosts()
         {
             $entityManager = (new EntityManagerConfig)->createEntityManager();
-            $blogPostRepository = $entityManager->getRepository('Database\Entities\BlogEntity');
+            $blogPostRepository = $entityManager->getRepository('Database\Entities\Blog\BlogEntity');
             $blogPosts = $blogPostRepository->findAll();
             $allBlogPosts = [];
 

@@ -4,7 +4,7 @@
 
     interface ControllerInterface
     {
-        public function __construct();
+        public function __construct(array $args);
 
         public function getModule();
 
