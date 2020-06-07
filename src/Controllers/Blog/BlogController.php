@@ -5,7 +5,6 @@
     namespace Controllers\Blog;
 
     use Common\Controller;
-    use Common\ControllerInterface;
     use Database\Config\EntityManagerConfig;
     use Database\Entities\Blog\BlogEntity;
     use DateTime;
@@ -13,7 +12,7 @@
     use Doctrine\ORM\ORMException;
     use Doctrine\ORM\TransactionRequiredException;
 
-    class BlogController extends Controller implements ControllerInterface
+    class BlogController extends Controller
     {
         private const MODULE = 'Blog';
 
@@ -24,10 +23,7 @@
                     [
                         $this->setTemplatePath(self::MODULE),
                         $this->setTemplateData(
-                            array_merge(
-                                $this->getModule(),
-                                $this->getBlogPostById($args)
-                            )
+                            $this->getTwigData($args)
                         ),
                     ]
                 );
@@ -42,9 +38,17 @@
             return ['module' => self::MODULE];
         }
 
-        public function getTwigData()
+        /**
+         * @param $args
+         * @return array
+         * @throws PostNotFoundException
+         */
+        public function getTwigData($args): array
         {
-            // TODO: Implement getTwigData() method.
+            return array_merge(
+                $this->getModule(),
+                $this->getBlogPostById($args)
+            );
         }
 
         public function createBlogPost(string $title, string $post): void

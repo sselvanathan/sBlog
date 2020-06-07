@@ -5,10 +5,9 @@
     namespace Controllers\Home;
 
     use Common\Controller;
-    use Common\ControllerInterface;
     use Database\Config\EntityManagerConfig;
 
-    class HomeController extends Controller implements ControllerInterface
+    class HomeController extends Controller
     {
         private const MODULE = 'Home';
 
@@ -18,10 +17,7 @@
                 [
                     $this->setTemplatePath(self::MODULE),
                     $this->setTemplateData(
-                        array_merge(
-                            $this->getModule(),
-                            $this->getAllBlogPosts()
-                        )
+                        $this->getTwigData()
                     ),
                 ]
             );
@@ -34,9 +30,10 @@
 
         public function getTwigData(): array
         {
-            return [
+            return array_merge(
+                $this->getModule(),
                 $this->getAllBlogPosts()
-            ];
+            );
         }
 
         public function getAllBlogPosts()

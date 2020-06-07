@@ -1,63 +1,59 @@
 <?php
 
-namespace Common;
+    namespace Common;
 
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
+    use Twig\Environment;
+    use Twig\Loader\FilesystemLoader;
 
-abstract class Controller
-{
-
-    private const TEMPLATE_PATH = 'src/Views/Templates/';
-
-    /**
-     * @var string
-     */
-    private $templatePath = '';
-
-    /**
-     * @var array
-     */
-    private $templateData = [];
-
-    /**
-     * @var array
-     */
-    private $args;
-
-    public function __construct(array $args = [])
+    abstract class Controller
     {
-        $this->args = $args;
+        private const TEMPLATE_PATH = '../app/config/Templates/';
+        /**
+         * @var string
+         */
+        private $templatePath = '';
+        /**
+         * @var array
+         */
+        private $templateData = [];
+        /**
+         * @var array
+         */
+        protected $args;
+
+        public function __construct(array $args = [])
+        {
+            $this->args = $args;
+        }
+
+        public function getTemplateData(): array
+        {
+            return $this->templateData;
+        }
+
+        public function setTemplateData(array $templateData): self
+        {
+            $this->templateData = $templateData;
+
+            return $this;
+        }
+
+        public function getTemplatePath(): string
+        {
+            return $this->templatePath;
+        }
+
+        public function setTemplatePath(string $templateName): self
+        {
+            $this->templatePath = $templateName . '.twig';
+
+            return $this;
+        }
+
+        public function getTwigEnvironment(): Environment
+        {
+            $loader = new FilesystemLoader(
+                self::TEMPLATE_PATH);
+            return new Environment($loader);
+        }
     }
-
-    public function getTemplateData(): array
-    {
-        return $this->templateData;
-    }
-
-    public function setTemplateData(array $templateData): self
-    {
-        $this->templateData = $templateData;
-
-        return $this;
-    }
-
-    public function getTemplatePath(): string
-    {
-        return $this->templatePath;
-    }
-
-    public function setTemplatePath(string $templateName): self
-    {
-        $this->templatePath = $templateName . '.twig';
-
-        return $this;
-    }
-
-    public function getTwigEnvironment(): Environment
-    {
-        $loader = new FilesystemLoader(
-            self::TEMPLATE_PATH);
-        return new Environment($loader);
-    }
-}

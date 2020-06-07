@@ -4,7 +4,6 @@
     use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
     require 'vendor/autoload.php';
-    require 'autoload.php';
 
     $entityManager = new EntityManagerConfig();
 

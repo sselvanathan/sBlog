@@ -5,17 +5,16 @@
     namespace Controllers\Error;
 
     use Common\Controller;
-    use Common\ControllerInterface;
 
-    class ErrorController extends Controller implements ControllerInterface
+    class ErrorController extends Controller
     {
-        private const MODULE = 'Error';
+        private const ERROR_MODULE = 'Error';
 
         public function __construct($args)
         {
             parent::__construct(
                 [
-                    $this->setTemplatePath(self::MODULE),
+                    $this->setTemplatePath(self::ERROR_MODULE),
                     $this->setTemplateData(
                         [
                             $this->getModule()
@@ -27,7 +26,7 @@
 
         public function getModule()
         {
-            return ['module' => self::MODULE];
+            return ['module' => self::ERROR_MODULE];
         }
 
         public function getTwigData()
