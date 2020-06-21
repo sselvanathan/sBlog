@@ -5,6 +5,7 @@
     namespace Controllers\Home;
 
     use Common\Controller;
+    use Controllers\Blog\BlogController;
     use Database\Config\EntityManagerConfig;
 
     class HomeController extends Controller
@@ -39,7 +40,7 @@
         public function getAllBlogPosts()
         {
             $entityManager = (new EntityManagerConfig)->createEntityManager();
-            $blogPostRepository = $entityManager->getRepository('Database\Entities\Blog\BlogEntity');
+            $blogPostRepository = $entityManager->getRepository(BlogController::BLOG_ENTITY_PATH );
             $blogPosts = $blogPostRepository->findAll();
             $allBlogPosts = [];
 

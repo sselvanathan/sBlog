@@ -6,7 +6,7 @@
 
     use Common\Controller;
     use Database\Config\EntityManagerConfig;
-    use Database\Entities\Blog\BlogEntity;
+    use Database\Entities\BlogEntity;
     use DateTime;
     use Doctrine\ORM\OptimisticLockException;
     use Doctrine\ORM\ORMException;
@@ -15,6 +15,8 @@
     class BlogController extends Controller
     {
         private const MODULE = 'Blog';
+
+        public const BLOG_ENTITY_PATH = 'Database\Entities\BlogEntity';
 
         public function __construct(array $args)
         {
@@ -84,7 +86,7 @@
         {
             $entityManager = (new EntityManagerConfig)->createEntityManager();
             try {
-                $blogPostObject = $entityManager->find('Database\Entities\Blog\BlogEntity', (int)$args[0]);
+                $blogPostObject = $entityManager->find(self::BLOG_ENTITY_PATH, (int)$args[0]);
                 $blogPost = [
                     "id" => $blogPostObject->getId(),
                     "title" => $blogPostObject->getTitle(),
