@@ -23,8 +23,20 @@
         public function __construct()
         {
             $uriParts = explode('/', $_SERVER['REQUEST_URI']);
-            $this->controllerName = array_shift($uriParts);
-            $this->args = $uriParts;
+
+            foreach ($uriParts as $uriPart){
+                if ($uriPart === "") {
+                    unset($uriPart);
+                } else {
+                    $refactoredUriParts[] = $uriPart;
+                }
+            }
+
+            $refactoredUriParts = (empty($refactoredUriParts)) ? [''] : $refactoredUriParts;
+
+            $this->controllerName = array_shift($refactoredUriParts);
+
+             $this->args = $refactoredUriParts;
         }
 
         public function getController(): Controller
