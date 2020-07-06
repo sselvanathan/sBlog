@@ -22,8 +22,7 @@
 
         public function __construct()
         {
-            $uri = ltrim($_SERVER['REQUEST_URI'], '/sBlog/');
-            $uriParts = explode('/', $uri);
+            $uriParts = explode('/', $_SERVER['REQUEST_URI']);
             $this->controllerName = array_shift($uriParts);
             $this->args = $uriParts;
         }

@@ -20,24 +20,24 @@
          * @ORM\GeneratedValue(strategy="IDENTITY")
          * @var int
          */
-        protected $id;
+        protected int $id;
 
         /**
          * @ORM\Column(name="post", type="string", length=256)
          * @var string
          */
-        protected $post;
+        protected string $post;
 
         /**
          * @ORM\Column(name="title", type="string", length=32)
          * @var string
          */
-        protected $title;
+        protected string $title;
 
         /**
          * @ORM\Column(name="created_at", type="datetime", options={"default": "CURRENT_TIMESTAMP"})
          */
-        protected $createdAt;
+        protected DateTime $createdAt;
 
         public function getId(): int
         {

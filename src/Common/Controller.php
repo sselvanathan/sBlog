@@ -11,15 +11,15 @@
         /**
          * @var string
          */
-        private $templatePath = '';
+        private string $templatePath = '';
         /**
          * @var array
          */
-        private $templateData = [];
+        private array $templateData = [];
         /**
          * @var array
          */
-        protected $args;
+        protected array $args;
 
         public function __construct(array $args = [])
         {

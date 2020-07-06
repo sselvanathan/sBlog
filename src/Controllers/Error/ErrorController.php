@@ -8,17 +8,15 @@
 
     class ErrorController extends Controller
     {
-        private const ERROR_MODULE = 'Error';
+        private const MODULE = 'Error';
 
-        public function __construct($args)
+        public function __construct()
         {
             parent::__construct(
                 [
-                    $this->setTemplatePath(self::ERROR_MODULE),
+                    $this->setTemplatePath(self::MODULE),
                     $this->setTemplateData(
-                        [
-                            $this->getModule()
-                        ]
+                        $this->getTwigData()
                     ),
                 ]
             );
@@ -26,12 +24,14 @@
 
         public function getModule()
         {
-            return ['module' => self::ERROR_MODULE];
+            return ['module' => self::MODULE];
         }
 
         public function getTwigData()
         {
-            // TODO: Implement getTwigData() method.
+            return array_merge(
+                $this->getModule(),
+            );
         }
     }
 

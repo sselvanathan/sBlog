@@ -12,7 +12,7 @@
     {
         private const MODULE = 'Home';
 
-        public function __construct($args)
+        public function __construct()
         {
             parent::__construct(
                 [
