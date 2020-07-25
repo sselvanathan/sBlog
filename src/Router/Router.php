@@ -1,54 +1,34 @@
 <?php
 
-    declare(strict_types=1);
+declare(strict_types=1);
 
-    namespace Router;
+namespace Router;
 
-    use Common\Controller;
-    use Controllers\Blog\BlogController;
-    use Controllers\Home\HomeController;
-    use Controllers\Error\ErrorController;
+use Project\Config;
 
-    class Router
+class Router
+{
+    protected array $args;
+
+    protected string $controllerName;
+
+    public function getControllerWithArgs()
     {
-        /**
-         * @var array
-         */
-        private $args;
-        /**
-         * @var string
-         */
-        private $controllerName;
+        $uri = str_replace('/ ' . (new Config)->getProjectName() . '/', '', $_SERVER['REQUEST_URI']);
+        $uriParts = explode('/', $uri);
+        array_shift($uriParts);
+        $this->controllerName = ucfirst($uriParts[0]);
+        $controller = $this->getControllerNamespace();
 
-        public function __construct()
-        {
-            $uriParts = explode('/', $_SERVER['REQUEST_URI']);
-
-            foreach ($uriParts as $uriPart){
-                if ($uriPart === "") {
-                    unset($uriPart);
-                } else {
-                    $refactoredUriParts[] = $uriPart;
-                }
-            }
-
-            $refactoredUriParts = (empty($refactoredUriParts)) ? [''] : $refactoredUriParts;
-
-            $this->controllerName = array_shift($refactoredUriParts);
-
-             $this->args = $refactoredUriParts;
-        }
-
-        public function getController(): Controller
-        {
-            switch ($this->controllerName) {
-                case '' :
-                case 'home' :
-                    return new HomeController($this->args);
-                case 'blog':
-                    return new BlogController($this->args);
-                default :
-                    return new ErrorController($this->args);
-            }
-        }
+        return new $controller($uriParts);
     }
+
+    private function getControllerNamespace(): string
+    {
+        if ($this->controllerName === '') {
+            $this->controllerName = 'Home';
+        }
+
+        return 'Controllers\\' . $this->controllerName . '\\' . $this->controllerName . 'Controller';
+    }
+}

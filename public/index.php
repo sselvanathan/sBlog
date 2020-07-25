@@ -1,19 +1,12 @@
 <?php
 
-    use Router\Router;
-    use Twig\Error\LoaderError;
-    use Twig\Error\RuntimeError;
-    use Twig\Error\SyntaxError;
+use Router\Router;
 
-    require '../vendor/autoload.php';
+require '../vendor/autoload.php';
 
-    $controller = (new Router())->getController();
+$controllers = (new Router)->getControllerWithArgs();
 
-    try {
-        echo $controller->getTwigEnvironment()->render(
-            $controller->getTemplatePath(),
-            $controller->getTemplateData()
-        );
-    } catch (LoaderError | RuntimeError  | SyntaxError $e) {
-        echo $e;
-    }
+    echo $controllers->getTwigEnvironment()->render(
+        $controllers->getTemplatePath(),
+        $controllers->getTemplateData()
+    );
