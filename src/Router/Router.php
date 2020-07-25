@@ -29,6 +29,10 @@ class Router
             $this->controllerName = 'Home';
         }
 
-        return 'Controllers\\' . $this->controllerName . '\\' . $this->controllerName . 'Controller';
+        $controllerNameSpace = 'Controllers\\' . $this->controllerName . '\\' . $this->controllerName . 'Controller';
+
+        $controllerNameSpace = (class_exists($controllerNameSpace, true)) ? $controllerNameSpace : 'Controllers\Error\ErrorController';
+
+        return $controllerNameSpace;
     }
 }
