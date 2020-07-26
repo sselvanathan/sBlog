@@ -1,12 +1,12 @@
 <?php
 
-    declare(strict_types=1);
+declare(strict_types=1);
 
-    namespace Controllers\Blog;
+namespace Controllers\Blog;
 
-    use Exception;
+use Exception;
 
-    class PostNotFoundException extends Exception
-    {
+class PostNotFoundException extends Exception
+{
 
-    }
+}
