@@ -12,7 +12,16 @@ ___
     
      `CREATE DATABASE sblog;	`
     
-  to update the database run in Powershell :
+  to update the database run in terminal :
  
      `vendor/bin/doctrine orm:schema-tool:update --force	`
+
+  to start docker :
+ 
+     `docker-compose up -d	`
+
+  to stop docker :
+ 
+     `docker-compose down	`
+
 

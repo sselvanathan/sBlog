@@ -7,7 +7,7 @@ use Twig\Loader\FilesystemLoader;
 
 abstract class Controller
 {
-    private const TEMPLATE_PATH = '../app/config/Templates/';
+    private const TEMPLATE_PATH = 'view/config/Templates/';
 
     private string $templatePath = '';
 
