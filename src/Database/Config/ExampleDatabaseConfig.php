@@ -11,11 +11,11 @@ class ExampleDatabaseConfig
      * -> adjust constants
      */
 {
-    private const USER = 'username';
-    private const PASSWORD = 'password';
+    private const USER = 'root';
+    private const PASSWORD = 'example';
     private const NAME = 'dbname';
-    private const HOST = 'host';
-    private const DRIVER = 'driver';
+    private const HOST = 'db';
+    private const DRIVER = 'pdo_mysql';
 
     private function getUser(): string
     {
