@@ -1,9 +1,27 @@
 {% include 'header/Header.twig' %}
-<body>
-<ul>
-    <li>{{ blogPost.id|e }}</li>
-    <li>{{ blogPost.title|e }}</li>
-    <li>{{ blogPost.post|e }}</li>
-</ul>
-</body>
+<div class="content pure-u-1 pure-u-md-3-4">
+    <div>
+        <div class="posts">
+                <section class="post">
+                    <header class="post-header">
+                        <img width="48" height="48" alt="User avatar" class="post-avatar"
+                             src="/img/common/tilo-avatar.png">
+                        <a href="/blog/{{ blogPost.id }}">
+                            <h2 class="post-title">{{ blogPost.title|e }}</h2>
+                        </a>
+                        <p class="post-meta">
+                            By <a href="#" class="post-author">User</a> under <a
+                                    class="post-category post-category-design" href="#">CSS</a> <a
+                                    class="post-category post-category-pure" href="#">PHP</a>
+                        </p>
+                    </header>
+                    <ul>
+                        <div class="post-description">
+                            <p>{{ blogPost.post|e }}</p>
+                        </div>
+                    </ul>
+                </section>
+        </div>
+    </div>
+</div>
 {% include 'footer/Footer.twig' %}

@@ -25,7 +25,7 @@ class Router
 
     private function getControllerNamespace(): string
     {
-        if ($this->controllerName === '') {
+        if ($this->controllerName === '' || $this->controllerName === 'Index.php') {
             $this->controllerName = 'Home';
         }
 
