@@ -12,6 +12,10 @@ class Router
 
     protected string $controllerName;
 
+    /**
+     * @return mixed
+     * @throws NoRouteMatchedException
+     */
     public function getControllerWithArgs()
     {
         $uri = str_replace('/ ' . (new Config)->getProjectName() . '/', '', $_SERVER['REQUEST_URI']);
@@ -23,6 +27,10 @@ class Router
         return new $controller($uriParts);
     }
 
+    /**
+     * @return string
+     * @throws NoRouteMatchedException
+     */
     private function getControllerNamespace(): string
     {
         if ($this->controllerName === '' || $this->controllerName === 'Index.php') {
@@ -30,7 +38,9 @@ class Router
         }
 
         $controllerNameSpace = 'Controllers\\' . $this->controllerName . '\\' . $this->controllerName . 'Controller';
-        $controllerNameSpace = (class_exists($controllerNameSpace, true)) ? $controllerNameSpace : 'Controllers\Error\ErrorController';
+        if (!class_exists($controllerNameSpace, true)) {
+            throw new NoRouteMatchedException();
+        }
 
         return $controllerNameSpace;
     }

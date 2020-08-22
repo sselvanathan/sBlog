@@ -6,7 +6,6 @@
   },
   "require": {
     "twig/twig": "^3.0",
-    "doctrine/orm": "^2.7.3",
-    "twig/markdown-extra": "^3.0"
+    "doctrine/orm": "^2.7.3"
   }
 }

@@ -18,16 +18,21 @@ h3 {
     font-weight: 100;
 }
 
-/* LAYOUT CSS */
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-
 .layout {
     padding: 0;
-    font-family: sans-serif;
-    width: 25%;
+    width: 20%;
+    letter-spacing: -.31em;
+    text-rendering: optimizespeed;
+    font-family: FreeSans,Arimo,"Droid Sans",Helvetica,Arial,sans-serif;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
 }
 
 .header {
@@ -37,9 +42,26 @@ h3 {
 }
 
 .sidebar {
+    font-family: sans-serif;
     background: rgb(61, 79, 93);
     color: #fff;
     width: 25%;
+}
+
+.button {
+    display: inline-block;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .brand-title,
@@ -181,10 +203,6 @@ h3 {
     text-shadow: 0 1px 1px #333;
 }
 
-/*.footer {*/
-/*    padding: 1em 0;*/
-/*}*/
-
 .footer {
     text-align: center;
     position: fixed;
@@ -219,12 +237,17 @@ h3 {
         top: 0;
         bottom: 0;
         left: 0;
-        /*width: 25%;*/
+        display: inline-block;
+        letter-spacing: normal;
+        word-spacing: normal;
+        vertical-align: top;
+        text-rendering: auto;
     }
 
-    .footer {
+    #footer-wrapper {
+        position: absolute;
         text-align: center;
-        position: fixed;
+        margin-left: 25%;
         left: 0;
         right: 0;
         bottom: 0;

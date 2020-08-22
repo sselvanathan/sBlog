@@ -42,6 +42,7 @@ class HomeController extends Controller
         $entityManager = (new EntityManagerConfig)->createEntityManager();
         $blogPostRepository = $entityManager->getRepository(BlogController::BLOG_ENTITY_PATH);
         $blogPosts = $blogPostRepository->findAll();
+        var_dump($blogPosts);
         $allBlogPosts = [];
 
         foreach ($blogPosts as $blogPost) {
