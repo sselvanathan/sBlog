@@ -1,0 +1,18 @@
+.header {
+    text-align: center;
+    top: auto;
+    margin: 3em auto;
+}
+
+.sidebar {
+    font-family: sans-serif;
+    background: rgb(61, 79, 93);
+    color: #fff;
+    width: 100%;
+    display: inline-block;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+

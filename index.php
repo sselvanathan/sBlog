@@ -12,8 +12,6 @@ try {
     $controllers = new ErrorController();
 }
 
-var_dump($controller->getTemplateData());
-
 echo $controller->getTwigEnvironment()->render(
     $controller->getTemplatePath(),
     $controller->getTemplateData()

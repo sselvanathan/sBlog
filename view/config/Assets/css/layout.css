@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    display: block;
+    margin: 0;
+}
+
 a {
     text-decoration: none;
     color: rgb(61, 146, 201);
@@ -18,9 +23,8 @@ h3 {
     font-weight: 100;
 }
 
-.layout {
+#layout {
     padding: 0;
-    width: 20%;
     letter-spacing: -.31em;
     text-rendering: optimizespeed;
     font-family: FreeSans,Arimo,"Droid Sans",Helvetica,Arial,sans-serif;
@@ -29,39 +33,26 @@ h3 {
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    -ms-flex-flow: row wrap;
     flex-flow: row wrap;
-    -ms-flex-line-pack: start;
     align-content: flex-start;
-}
-
-.header {
-    text-align: center;
-    top: auto;
-    margin: 3em auto;
 }
 
 .sidebar {
     font-family: sans-serif;
     background: rgb(61, 79, 93);
     color: #fff;
-    width: 25%;
+    width: 100%;
+    display: inline-block;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
 }
 
-.button {
-    display: inline-block;
-    line-height: normal;
-    white-space: nowrap;
-    vertical-align: middle;
+.header {
     text-align: center;
-    cursor: pointer;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    top: auto;
+    margin: 3em auto;
 }
 
 .brand-title,
@@ -242,6 +233,7 @@ h3 {
         word-spacing: normal;
         vertical-align: top;
         text-rendering: auto;
+        width: 25%;
     }
 
     #footer-wrapper {
