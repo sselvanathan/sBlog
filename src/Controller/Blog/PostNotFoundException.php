@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Controllers\Blog;
+namespace Controller\Blog;
 
 use Exception;
 

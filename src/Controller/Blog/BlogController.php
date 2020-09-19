@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Controllers\Blog;
+namespace Controller\Blog;
 
-use Common\Controller;
+use Controller\Controller;
 use Database\Config\EntityManagerConfig;
 use Database\Entities\BlogEntity;
 use DateTime;

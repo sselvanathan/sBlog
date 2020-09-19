@@ -37,7 +37,7 @@ class Router
             $this->controllerName = 'Home';
         }
 
-        $controllerNameSpace = 'Controllers\\' . $this->controllerName . '\\' . $this->controllerName . 'Controller';
+        $controllerNameSpace = 'Controller\\' . $this->controllerName . '\\' . $this->controllerName . 'Controller';
         if (!class_exists($controllerNameSpace, true)) {
             throw new NoRouteMatchedException();
         }

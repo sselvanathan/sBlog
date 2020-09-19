@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Controllers\Home;
+namespace Controller\Home;
 
-use Common\Controller;
-use Controllers\Blog\BlogController;
+use Controller\Controller;
+use Controller\Blog\BlogController;
 use Database\Config\EntityManagerConfig;
 
 class HomeController extends Controller

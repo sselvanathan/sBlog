@@ -20,6 +20,11 @@
     font-size: 2em;
 }
 
+.btn:hover {
+    font-size: 2.2em;
+    color: rgb(41, 49, 51);
+}
+
 #footer-wrapper {
     position: absolute;
     text-align: center;

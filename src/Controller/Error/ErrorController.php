@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Controllers\Error;
+namespace Controller\Error;
 
-use Common\Controller;
+use Controller\Controller;
 
 class ErrorController extends Controller
 {
