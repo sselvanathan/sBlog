@@ -2,4 +2,4 @@ Options -MultiViews
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !\.(pdf|js|ico|gif|jpg|png|css|rar|zip|tar\.gz)$
     RewriteCond %{REQUEST_METHOD} !=POST
-    RewriteRule ^((?!\.js|\.css).*)$ index.php [QSA,L]
+    RewriteRule ^((?!\.js|\.css).*)$ sBlog/index.php [QSA,L]
