@@ -1,26 +1,17 @@
-.header {
-    text-align: center;
-    top: auto;
-    margin: 3em auto;
-}
+$primary: rgb(176, 202, 219);
 
 .sidebar {
-    padding: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-flow: row wrap;
-    align-content: flex-start;
     font-family: sans-serif;
     background: rgb(61, 79, 93);
     color: #fff;
-    width: 100%;
-    display: inline-block;
     letter-spacing: normal;
     word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto;
+}
+
+.sidebar-menu {
+    text-align: center;
+    top: auto;
+    margin: 3em auto;
 }
 
 .brand-title,
@@ -34,7 +25,7 @@
 
 .brand-tagline {
     font-weight: 300;
-    color: rgb(176, 202, 219);
+    color: $primary;
 }
 
 .nav-list {
@@ -43,15 +34,9 @@
     list-style: none;
 }
 
-.nav-item {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-}
-
 .nav-item a {
     background: transparent;
-    border: 2px solid rgb(176, 202, 219);
+    border: 2px solid $primary;
     color: #fff;
     margin-top: 1em;
     letter-spacing: 0.05em;
@@ -79,6 +64,47 @@
     box-sizing: border-box;
 }
 
+.button {
+    transition: color 300ms ease-in-out;
+    z-index: 1;
+    background-color: #E3E3E3;
+    color: rgb(61, 146, 201);
+    padding: .5em 1em;
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+
+    --background-color: #E3E3E3;
+    --border-size: 2px;
+    --accent-color: #0AF;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color:  rgb(61, 146, 201);
+
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.button:hover::before,
+.button:focus::before {
+    transform: scaleX(1);
+}
+
+.button:hover,
+.button:focus {
+    color: white;
+}
+
 .nav-item a:hover,
 .nav-item a:focus {
     border: 2px solid rgb(61, 146, 201);
@@ -87,21 +113,16 @@
 
 @media (min-width: 48em) {
 
-    .header {
-        margin: 80% 2em 0;
-        text-align: right;
+    .sidebar {
+        display: flex;
+        flex: 20%;
+        flex-direction: column;
     }
 
-    .sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        display: inline-block;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
-        width: 25%;
+    .sidebar-menu {
+        margin: 80% 2em 0;
+        text-align: right;
+        align-items: center;
+        justify-content: center;
     }
 }

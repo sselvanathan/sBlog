@@ -11,8 +11,8 @@
     font-size: 80%;
 }
 
-.footer .pure-menu a:hover,
-.footer .pure-menu a:focus {
+.footer a:hover,
+.footer a:focus {
     background: none;
 }
 
@@ -23,18 +23,19 @@
 .btn:hover {
     font-size: 2.2em;
     color: rgb(41, 49, 51);
+    text-decoration: none;
 }
 
-#footer-wrapper {
-    position: absolute;
+footer{
     text-align: center;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    flex: 0;
 }
 
-@media (min-width: 48em) {
-    #footer-wrapper {
-        margin-left: 25%;
+@media (max-width: 48em) {
+    footer {
+        background: #3d4f5d;
+        span {
+            color: whitesmoke;
+        }
     }
 }

@@ -2,7 +2,11 @@
 
 ## To get started please follow these steps.
 
-1. Setting Up DB
+1. Setting Up Redirection
+___
+    rename .htaccessExample to .htaccess and move it one directory up
+
+2. Setting Up DB
 ___
   Adjust Database at :
     
@@ -16,12 +20,10 @@ ___
  
      `vendor/bin/doctrine orm:schema-tool:update --force`
 
-  to start docker :
- 
-     `docker-compose up -d`
+## Tech Stack
 
-  to stop docker :
- 
-     `docker-compose down`
-
-
+-> PHP 7.4
+-> Doctrine 2.7.4
+-> Dart Sass 1.27
+-> Twig 3.1.0
+-> Font Awesome 5.14.0

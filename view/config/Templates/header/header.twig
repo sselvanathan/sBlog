@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>{{ module }}</title>
     {% block stylesheets %}
-        <link type="text/css" href="/view/config/Assets/css/style.css" rel="stylesheet">
-        <link type="text/css" href="/view/config/Assets/css/header/header.css" rel="stylesheet">
-        <link type="text/css" href="/view/config/Assets/css/content/content.css" rel="stylesheet">
-        <link type="text/css" href="/view/config/Assets/css/footer/footer.css" rel="stylesheet">
-        <link href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/view/config/Assets/scss/layout.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/view/config/Assets/scss/header/sidebar.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/view/config/Assets/scss/content/content.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/view/config/Assets/scss/content/errorView.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/view/config/Assets/scss/footer/footer.min.css" rel="stylesheet">
+        <link type="text/css" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
+<script src="/sBlog/view/config/Assets/js/error.js"></script>
 {% include 'header/sidebar.twig' %}

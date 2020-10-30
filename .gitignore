@@ -1,3 +1,4 @@
 /.idea
 /vendor
 /src/Database/Config/DatabaseConfig.php
+/view/config/Assets/images/

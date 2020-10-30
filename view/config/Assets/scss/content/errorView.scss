@@ -1,0 +1,42 @@
+#error-msg {
+  p {
+    font-family: sans-serif;
+    background: #3d4f5d;
+    color: #fff;
+    letter-spacing: normal;
+    word-spacing: normal;
+    font-size: 3em;
+  }
+}
+
+#error-img img {
+  width: 28em;
+  height: 28em;
+}
+
+@media (max-width: 48em) {
+  body {
+    min-height: 60vh;
+  }
+
+  .page {
+    min-height: 60vh;
+    padding: 0;
+  }
+
+  #error-msg {
+    p {
+      font-family: sans-serif;
+      background: #3d4f5d;
+      color: #fff;
+      letter-spacing: normal;
+      word-spacing: normal;
+      font-size: 1em;
+    }
+  }
+
+  #error-img img {
+    width: 14em;
+    height: 14em;
+  }
+}
