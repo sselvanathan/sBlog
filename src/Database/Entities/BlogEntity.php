@@ -23,7 +23,7 @@ class BlogEntity
     protected int $id;
 
     /**
-     * @ORM\Column(name="post", type="string", length=256)
+     * @ORM\Column(name="post", type="text")
      * @var string
      */
     protected string $post;

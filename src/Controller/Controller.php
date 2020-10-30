@@ -39,7 +39,7 @@ abstract class Controller
 
     public function setTemplatePath(string $templateName): self
     {
-        $this->templatePath = lcfirst($templateName) . '.twig';
+        $this->templatePath = lcfirst($templateName) . 'View.twig';
 
         return $this;
     }

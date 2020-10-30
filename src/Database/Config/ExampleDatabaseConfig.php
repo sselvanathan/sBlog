@@ -42,7 +42,7 @@ class ExampleDatabaseConfig
         return self::DRIVER;
     }
 
-    public function getDbParams()
+    public function getDbParams(): array
     {
         return [
             'driver' => $this->getDriver(),

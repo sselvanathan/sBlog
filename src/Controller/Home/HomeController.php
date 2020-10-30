@@ -37,7 +37,7 @@ class HomeController extends Controller
         );
     }
 
-    public function getAllBlogPosts()
+    public function getAllBlogPosts(): array
     {
         $entityManager = (new EntityManagerConfig)->createEntityManager();
         $blogPostRepository = $entityManager->getRepository(BlogController::BLOG_ENTITY_PATH);
