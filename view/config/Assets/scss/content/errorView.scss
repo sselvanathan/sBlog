@@ -1,8 +1,8 @@
 #error-msg {
   p {
     font-family: sans-serif;
-    background: #3d4f5d;
-    color: #fff;
+    color: #3d4f5d;
+    //color: #fff;
     letter-spacing: normal;
     word-spacing: normal;
     font-size: 3em;
@@ -12,6 +12,7 @@
 #error-img img {
   width: 28em;
   height: 28em;
+  border-radius: 9%;
 }
 
 @media (max-width: 48em) {
@@ -26,11 +27,6 @@
 
   #error-msg {
     p {
-      font-family: sans-serif;
-      background: #3d4f5d;
-      color: #fff;
-      letter-spacing: normal;
-      word-spacing: normal;
       font-size: 1em;
     }
   }

@@ -2,52 +2,48 @@
 
 declare(strict_types=1);
 
-namespace Controller\Blog;
+namespace View\Blog;
 
-use Controller\Controller;
 use Database\Config\EntityManagerConfig;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\ORM\TransactionRequiredException;
+use View\View;
 
-class BlogController extends Controller
+class BlogView extends View
 {
-    private const MODULE = 'Blog';
     public const BLOG_ENTITY_PATH = 'Database\Entities\BlogEntity';
 
-    public function __construct(array $args)
+    function getTemplateName(): string
     {
-        try {
-            parent::__construct(
-                [
-                    $this->setTemplatePath(self::MODULE),
-                    $this->setTemplateData(
-                        $this->getTwigData($args)
-                    ),
-                ]
-            );
-        } catch (PostNotFoundException $e) {
-            parent:
-            $this->__construct($args);
-        }
+        return 'BlogView.twig';
     }
 
-    public function getModule()
-    {
-        return ['module' => self::MODULE];
-    }
-
-    /**
-     * @param $args
-     * @return array
-     * @throws PostNotFoundException
-     */
-    public function getTwigData($args): array
+    public function getTemplateData(): array
     {
         return array_merge(
-            $this->getModule(),
-            $this->getBlogPostById($args)
+            $this->jsFiles(),
+            $this->cssFiles(),
+            $this->getBlogPostById(),
         );
+    }
+
+    private function jsFiles(): array
+    {
+        return [
+            "scripts" =>
+                [
+                ]
+        ];
+    }
+
+    private function cssFiles(): array
+    {
+        return [
+            "stylesheets" =>
+                [
+                ]
+        ];
     }
 
     /**

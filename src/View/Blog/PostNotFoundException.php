@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Controller\Blog;
+namespace View\Blog;
 
-use Exception;
+use Doctrine\DBAL\Exception;
 
 class PostNotFoundException extends Exception
 {
