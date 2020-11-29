@@ -8,5 +8,5 @@ abstract class View
 {
     abstract function getTemplateName(): string;
 
-    abstract function getTemplateData(): array;
+    abstract function getTemplateData(?array $params): ?array;
 }

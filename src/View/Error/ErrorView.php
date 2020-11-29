@@ -14,7 +14,7 @@ class ErrorView extends View
         return 'ErrorView.twig';
     }
 
-    public function getTemplateData(): array
+    public function getTemplateData($params): ?array
     {
         return array_merge(
             $this->jsFiles(),

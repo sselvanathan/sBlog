@@ -22,4 +22,14 @@ class Request
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
+
+    public function getParams(): ?array
+    {
+        return (isset($_GET)) ? $_GET : null;
+    }
+
+    public function getPost()
+    {
+        
+    }
 }

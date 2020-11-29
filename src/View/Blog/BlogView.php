@@ -19,13 +19,17 @@ class BlogView extends View
         return 'BlogView.twig';
     }
 
-    public function getTemplateData(): array
+    public function getTemplateData(?array $params): ?array
     {
-        return array_merge(
-            $this->jsFiles(),
-            $this->cssFiles(),
-            $this->getBlogPostById(),
-        );
+        try {
+            return array_merge(
+                $this->jsFiles(),
+                $this->cssFiles(),
+                $this->getBlogPostById((int)$params['id']),
+            );
+        } catch (PostNotFoundException $e) {
+        }
+        return null;
     }
 
     private function jsFiles(): array
@@ -47,15 +51,15 @@ class BlogView extends View
     }
 
     /**
-     * @param array $args
+     * @param int $id
      * @return array
      * @throws PostNotFoundException
      */
-    public function getBlogPostById(array $args): array
+    public function getBlogPostById(int $id): array
     {
         $entityManager = (new EntityManagerConfig)->createEntityManager();
         try {
-            $blogPostObject = $entityManager->find(self::BLOG_ENTITY_PATH, $args[1]);
+            $blogPostObject = $entityManager->find(self::BLOG_ENTITY_PATH, $id);
             $blogPost = [
                 "id" => $blogPostObject->getId(),
                 "title" => $blogPostObject->getTitle(),

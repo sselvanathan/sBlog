@@ -16,7 +16,7 @@ class HomeView extends View
         return 'HomeView.twig';
     }
 
-    public function getTemplateData(): array
+    public function getTemplateData(?array $params): ?array
     {
         return $this->getAllBlogPosts();
     }

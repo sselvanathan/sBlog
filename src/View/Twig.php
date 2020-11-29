@@ -14,14 +14,14 @@ class Twig
 {
     private const TEMPLATE_PATH = '../view/config/Templates/';
 
-    public function renderView(string $view): void
+    public function renderView(string $view, ?array $params)
     {
         $view = new $view();
 
         try {
             echo $this->getTwigEnvironment()->render(
                 lcfirst($view->getTemplateName()),
-                $view->getTemplateData()
+                $view->getTemplateData($params)
 
             );
         } catch (LoaderError | RuntimeError | SyntaxError $e) {

@@ -39,7 +39,5 @@ class BlogAction
         } catch (OptimisticLockException | ORMException $e) {
             echo $e;
         }
-
-        echo "Der Blog mit der ID " . $blog->getId() . " wurde erstellt";
     }
 }

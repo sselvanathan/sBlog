@@ -24,6 +24,6 @@ ___
 
 -> PHP 7.4
 -> Doctrine 2.7.4
+-> Twig v3.1.1
 -> Dart Sass 1.27
--> Twig 3.1.0
 -> Font Awesome 5.14.0
