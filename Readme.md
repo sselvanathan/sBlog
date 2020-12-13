@@ -2,18 +2,18 @@
 
 ## To get started please follow these steps.
 
-1. Setting Up Redirection
+1. Adjust htaccess
 ___
-    rename .htaccessExample to .htaccess and move it one directory up
+    `sudo mv .htaccessExample ../htaccessExample`
 
-2. Setting Up DB
+2. Set up DB
 ___
   Adjust Database at :
     
      src\Database\Config\ExampleDatabaseConfig.php
 
  create a database called sblog using sql :
-    
+ 
      `CREATE DATABASE sblog;`
     
   to update the database run in terminal :
@@ -22,8 +22,8 @@ ___
 
 ## Tech Stack
 
--> PHP 7.4
--> Doctrine 2.7.4
+-> PHP 8.0
+-> Doctrine 2.8.1
 -> Twig v3.1.1
 -> Dart Sass 1.27
 -> Font Awesome 5.14.0

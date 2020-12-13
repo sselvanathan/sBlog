@@ -6,13 +6,14 @@ namespace Core\Application;
 
 use Core\Request\Request;
 use Core\Routing\Router;
+use JetBrains\PhpStorm\Pure;
 
 class Application
 {
     public Router $router;
     private Request $request;
 
-    public function __construct()
+    #[Pure] public function __construct()
     {
         $this->request = new Request();
         $this->router = new Router($this->request);

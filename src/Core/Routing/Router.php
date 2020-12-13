@@ -19,7 +19,7 @@ class Router
         $this->request = $request;
     }
 
-    public function resolve(): ?bool
+    public function resolve()
     {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
@@ -31,17 +31,13 @@ class Router
             $callback = ErrorView::class;
         }
 
-        if (is_string($callback)) {
+        if ($method === "get") {
             $twig = new Twig();
             $twig->renderView($callback, $this->request->getParams());
-            return null;
+            return;
         }
 
-        if (is_array($callback)){
-            $callback[0] = new $callback[0];
-        }
-
-        return call_user_func($callback);
+        new $callback;
     }
 
     public function get(string $path, string $callback)

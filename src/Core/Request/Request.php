@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Core\Request;
 
+use JetBrains\PhpStorm\Pure;
+
 class Request
 {
-    public function getPath()
+    #[Pure] public function getPath()
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
         $position = strpos($path, '?');
@@ -18,7 +20,7 @@ class Request
 
     }
 
-    public function getMethod(): string
+    #[Pure] public function getMethod(): string
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }

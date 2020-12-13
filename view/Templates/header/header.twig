@@ -5,10 +5,10 @@
     <title>{{ module }}</title>
     {% block stylesheets %}
         <link type="text/css" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
-        <link type="text/css" href="/sBlog/view/config/Assets/scss/layout.min.css" rel="stylesheet">
-        <link type="text/css" href="/sBlog/view/config/Assets/scss/header/sidebar.min.css" rel="stylesheet">
-        <link type="text/css" href="/sBlog/view/config/Assets/scss/content/content.min.css" rel="stylesheet">
-        <link type="text/css" href="/sBlog/view/config/Assets/scss/footer/footer.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/public/scss/layout.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/public/scss/header/sidebar.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/public/scss/content/content.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/public/scss/footer/footer.min.css" rel="stylesheet">
 
         {% for stylesheet in stylesheets %}
             <link type="text/css" href="{{ stylesheet }}" rel="stylesheet">

@@ -6,6 +6,6 @@
   },
   "require": {
     "twig/twig": "^v3.1.1",
-    "doctrine/orm": "^2.7.4"
+    "doctrine/orm": "^2.8.1"
   }
 }

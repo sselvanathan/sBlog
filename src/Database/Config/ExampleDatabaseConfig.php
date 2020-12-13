@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Config;
 
+use JetBrains\PhpStorm\ArrayShape;
+
 class ExampleDatabaseConfig
     /*
      *ToDo
@@ -42,7 +44,7 @@ class ExampleDatabaseConfig
         return self::DRIVER;
     }
 
-    public function getDbParams(): array
+    #[ArrayShape(['driver' => "string", 'user' => "string", 'password' => "string", 'dbname' => "string", 'host' => "string"])] public function getDbParams(): array
     {
         return [
             'driver' => $this->getDriver(),

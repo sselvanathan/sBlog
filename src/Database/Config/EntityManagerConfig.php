@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Config;
 
+use Doctrine\DBAL\Driver\Exception;
 use Doctrine\ORM\EntityManager as DoctrineEntityManager;
 use Doctrine\ORM\ORMException;
 use Doctrine\ORM\Tools\Setup;
@@ -11,24 +12,22 @@ use Doctrine\ORM\Tools\Setup;
 class EntityManagerConfig
 {
     protected const ENTITIES_PATH = __DIR__ . '/../Entities';
-    protected $proxyDir = null;
-    protected $cache = null;
-    protected $useSimpleAnnotationReader = false;
+    protected bool $useSimpleAnnotationReader = false;
 
-    protected function isDevMode()
+    protected function isDevMode(): bool
     {
         return true; //ToDo check via DB
     }
 
-    public function createEntityManager()
+    public function createEntityManager(): DoctrineEntityManager|Exception|ORMException
     {
         $database = new DatabaseConfig();
         $dbParams = $database->getDbParams();
         $config = Setup::createAnnotationMetadataConfiguration(
             [self::ENTITIES_PATH],
             $this->isDevMode(),
-            $this->proxyDir,
-            $this->cache,
+            null,
+            null,
             $this->useSimpleAnnotationReader
         );
 

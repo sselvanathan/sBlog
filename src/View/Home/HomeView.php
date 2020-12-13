@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace View\Home;
 
+use JetBrains\PhpStorm\ArrayShape;
 use View\View;
 use Database\Config\EntityManagerConfig;
 
@@ -16,12 +17,12 @@ class HomeView extends View
         return 'HomeView.twig';
     }
 
-    public function getTemplateData(?array $params): ?array
+    #[ArrayShape(['allBlogPosts' => "array"])] public function getTemplateData(?array $params): ?array
     {
         return $this->getAllBlogPosts();
     }
 
-    public function getAllBlogPosts(): array
+    #[ArrayShape(['allBlogPosts' => "array"])] public function getAllBlogPosts(): array
     {
         $entityManager = (new EntityManagerConfig)->createEntityManager();
         $blogPostRepository = $entityManager->getRepository(self::BLOG_ENTITY_PATH);

@@ -12,7 +12,7 @@ use Twig\Loader\FilesystemLoader;
 
 class Twig
 {
-    private const TEMPLATE_PATH = '../view/config/Templates/';
+    private const TEMPLATE_PATH = '../view/Templates/';
 
     public function renderView(string $view, ?array $params)
     {

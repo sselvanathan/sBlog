@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace View\Error;
 
+use JetBrains\PhpStorm\ArrayShape;
+use Project\Config;
 use View\View;
 
 class ErrorView extends View
@@ -22,22 +24,22 @@ class ErrorView extends View
         );
     }
 
-    private function jsFiles(): array
+    #[ArrayShape(["scripts" => "string[]"])] private function jsFiles(): array
     {
         return [
             "scripts" =>
                 [
-                    "/sBlog/view/config/Assets/js/error.js",
+                    Config::getPublicDirectory() . "js/error.js",
                 ]
         ];
     }
 
-    private function cssFiles(): array
+    #[ArrayShape(["stylesheets" => "string[]"])] private function cssFiles(): array
     {
         return [
             "stylesheets" =>
                 [
-                    "/sBlog/view/config/Assets/scss/content/errorView.min.css",
+                    Config::getPublicDirectory() . "scss/content/errorView.min.css",
                 ]
         ];
     }

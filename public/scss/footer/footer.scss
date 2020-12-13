@@ -4,6 +4,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    margin-top: 2em;
 }
 
 .footer a {
@@ -31,7 +32,7 @@ footer{
     flex: 0;
 }
 
-@media (max-width: 48em) {
+@media (max-width: 47em) {
     footer {
         background: #3d4f5d;
         span {

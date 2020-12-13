@@ -15,6 +15,6 @@ $app = new Application();
 $app->router->get('/', HomeView::class);
 $app->router->get('/blog', BlogView::class);
 $app->router->get('/create', CreateView::class);
-$app->router->post('/create', [BlogController::class, 'handleNewBlogPost']);
+$app->router->post('/create', BlogController::class);
 
 $app->run();

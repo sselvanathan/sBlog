@@ -8,6 +8,7 @@ use Database\Config\EntityManagerConfig;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\ORM\TransactionRequiredException;
+use JetBrains\PhpStorm\ArrayShape;
 use View\View;
 
 class BlogView extends View
@@ -28,11 +29,12 @@ class BlogView extends View
                 $this->getBlogPostById((int)$params['id']),
             );
         } catch (PostNotFoundException $e) {
+            echo $e;
         }
         return null;
     }
 
-    private function jsFiles(): array
+    #[ArrayShape(["scripts" => "array"])] private function jsFiles(): array
     {
         return [
             "scripts" =>
@@ -41,7 +43,7 @@ class BlogView extends View
         ];
     }
 
-    private function cssFiles(): array
+    #[ArrayShape(["stylesheets" => "array"])] private function cssFiles(): array
     {
         return [
             "stylesheets" =>
@@ -55,7 +57,7 @@ class BlogView extends View
      * @return array
      * @throws PostNotFoundException
      */
-    public function getBlogPostById(int $id): array
+    #[ArrayShape(['blogPost' => "array"])] public function getBlogPostById(int $id): array
     {
         $entityManager = (new EntityManagerConfig)->createEntityManager();
         try {
