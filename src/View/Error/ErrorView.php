@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace View\Error;
 
 use JetBrains\PhpStorm\ArrayShape;
-use Project\Config;
+use Project\Config\Config;
 use View\View;
 
 class ErrorView extends View

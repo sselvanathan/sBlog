@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Project;
+namespace Project\Config;
 
 class Config
 {
