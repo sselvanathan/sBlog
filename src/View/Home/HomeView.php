@@ -6,7 +6,6 @@ namespace View\Home;
 
 use JetBrains\PhpStorm\ArrayShape;
 use Project\Config\Config;
-use View\Blog\PostNotFoundException;
 use View\View;
 use Database\Config\EntityManagerConfig;
 

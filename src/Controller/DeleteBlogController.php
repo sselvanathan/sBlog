@@ -6,7 +6,6 @@ namespace Controller;
 
 use Database\Config\EntityManagerConfig;
 use View\Home\HomeView;
-use View\Twig;
 
 class DeleteBlogController
 {
@@ -14,9 +13,6 @@ class DeleteBlogController
     {
         $entityManager = (new EntityManagerConfig)->createEntityManager();
         DeleteBlogController::deleteBlogPost($entityManager, (int)$_REQUEST['id']);
-
-        $twig = new Twig();
-        $twig->renderView(HomeView::class);
     }
 
     public function deleteBlogPost($entityManager, $id)
