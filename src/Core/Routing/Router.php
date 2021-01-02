@@ -23,6 +23,7 @@ class Router
     {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
+        $params = $this->request->getParameter();
         $callback = $this->routes[$method][$path] ?? false;
 
 
@@ -33,7 +34,7 @@ class Router
 
         if ($method === "get") {
             $twig = new Twig();
-            $twig->renderView($callback, $this->request->getParams());
+            $twig->renderView($callback, $params);
             return;
         }
 
@@ -45,8 +46,13 @@ class Router
         $this->routes['get'][$path] = $callback;
     }
 
-    public function post(string $path, $callback)
+    public function post(string $path, string $callback)
     {
         $this->routes['post'][$path] = $callback;
+    }
+
+    public function delete(string $path, string $callback)
+    {
+        $this->routes['delete'][$path] = $callback;
     }
 }

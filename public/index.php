@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-use Controller\BlogController;
+use Controller\CreateBlogController;
+use Controller\DeleteBlogController;
 use Core\Application\Application;
 use View\Blog\BlogView;
 use View\Create\CreateView;
@@ -14,7 +15,8 @@ $app = new Application();
 
 $app->router->get('/', HomeView::class);
 $app->router->get('/blog', BlogView::class);
-$app->router->get('/create', CreateView::class);
-$app->router->post('/create', BlogController::class);
+$app->router->get('/createBlog', CreateView::class);
+$app->router->post('/createBlog', CreateBlogController::class);
+$app->router->delete('/deleteBlog', DeleteBlogController::class);
 
 $app->run();

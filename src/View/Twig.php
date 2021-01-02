@@ -14,7 +14,7 @@ class Twig
 {
     private const TEMPLATE_PATH = '../view/Templates/';
 
-    public function renderView(string $view, ?array $params)
+    public function renderView(string $view, ?array $params = null)
     {
         $view = new $view();
 

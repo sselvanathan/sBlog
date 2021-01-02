@@ -25,13 +25,10 @@ class Request
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
-    public function getParams(): ?array
+    public function getParameter(): ?array
     {
-        return (isset($_GET)) ? $_GET : null;
-    }
-
-    public function getPost()
-    {
-        
+        $parameter = [];
+        parse_str($_SERVER['QUERY_STRING'],$parameter);
+        return (isset($_GET)) ? $parameter : null;
     }
 }

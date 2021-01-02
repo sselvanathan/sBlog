@@ -15,11 +15,11 @@
 }
 
 .post {
-  padding-bottom: 2em;
+  background-color: whitesmoke;
 }
 
 .post-pinned {
-  background-color: whitesmoke;
+  background-color: antiquewhite;
 }
 
 .post-title {
@@ -86,6 +86,10 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
+}
+
+.click {
+  cursor: pointer;
 }
 
 @media (min-width: 48em) {

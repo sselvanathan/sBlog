@@ -1,10 +1,9 @@
-<section class="post">
+<section class="post" id={{ blogPost.id }}>
     <header class="post-header">
-        <img width="48" height="48" alt="User avatar" class="post-avatar"
-             src="/sBlog/view/config/Assets/images/profilePicture.jpg">
-        <a href="/blog?id={{ blogPost.id }}">
-            <h2 class="post-title">{{ blogPost.title|e }}</h2>
+        <a class="post-title" href="/blog?id={{ blogPost.id }}">
+            {{ blogPost.title|e }}
         </a>
+        <i class="fas fa-trash fa-1x post-icon click" onclick="deleteBlogPostById({{ blogPost.id }});"></i>
         <p class="post-meta">
             By <a href="#" class="post-author">User</a> under <a
                     class="post-category post-category-design" href="#">CSS</a> <a
