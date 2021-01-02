@@ -27,7 +27,7 @@ class HomeView extends View
             );
     }
 
-    #[ArrayShape(["scripts" => "array"])] private function jsFiles(): array
+    #[ArrayShape(["scripts" => "array"])] protected function jsFiles(): array
     {
         return [
             "scripts" =>
@@ -37,7 +37,7 @@ class HomeView extends View
         ];
     }
 
-    #[ArrayShape(["stylesheets" => "array"])] private function cssFiles(): array
+    #[ArrayShape(["stylesheets" => "array"])] protected function cssFiles(): array
     {
         return [
             "stylesheets" =>

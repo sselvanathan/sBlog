@@ -30,7 +30,7 @@ class BlogView extends View
         return null;
     }
 
-    #[ArrayShape(["scripts" => "array"])] private function jsFiles(): array
+    #[ArrayShape(["scripts" => "array"])] protected function jsFiles(): array
     {
         return [
             "scripts" =>
@@ -40,7 +40,7 @@ class BlogView extends View
         ];
     }
 
-    #[ArrayShape(["stylesheets" => "array"])] private function cssFiles(): array
+    #[ArrayShape(["stylesheets" => "array"])] protected function cssFiles(): array
     {
         return [
             "stylesheets" =>

@@ -24,7 +24,7 @@ class ErrorView extends View
         );
     }
 
-    #[ArrayShape(["scripts" => "string[]"])] private function jsFiles(): array
+    #[ArrayShape(["scripts" => "string[]"])] protected function jsFiles(): array
     {
         return [
             "scripts" =>
@@ -34,7 +34,7 @@ class ErrorView extends View
         ];
     }
 
-    #[ArrayShape(["stylesheets" => "string[]"])] private function cssFiles(): array
+    #[ArrayShape(["stylesheets" => "string[]"])] protected function cssFiles(): array
     {
         return [
             "stylesheets" =>
