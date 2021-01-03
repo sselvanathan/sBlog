@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Controller;
 
+use Core\Request\Request;
 use Database\Config\EntityManagerConfig;
 use Database\Entities\BlogEntity;
 use DateTime;
@@ -24,8 +25,9 @@ class CreateBlogController
     public function __construct()
     {
         $entityManager = (new EntityManagerConfig)->createEntityManager();
+        $requestData = (new Request())->getRequestData();
 
-        CreateBlogController::createBlogPost($entityManager, $_POST['title'], $_POST['text']);
+        CreateBlogController::createBlogPost($entityManager, $requestData['title'], $requestData['text']);
 
         $twig = new Twig();
         $twig->renderView(BlogView::class, [
