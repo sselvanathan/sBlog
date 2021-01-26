@@ -5,10 +5,12 @@
     <title>{{ module }}</title>
     {% block stylesheets %}
         <link type="text/css" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" rel="stylesheet">
-        <link type="text/css" href="/sBlog/public/scss/layout.min.css" rel="stylesheet">
-        <link type="text/css" href="/sBlog/public/scss/header/sidebar.min.css" rel="stylesheet">
         <link type="text/css" href="/sBlog/public/scss/content/content.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/public/scss/content/notification.min.css" rel="stylesheet">
         <link type="text/css" href="/sBlog/public/scss/footer/footer.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/public/scss/header/sidebar.min.css" rel="stylesheet">
+        <link type="text/css" href="/sBlog/public/scss/layout.min.css" rel="stylesheet">
+        <script src="/sBlog/public/js/notification.js"></script>
 
         {% for stylesheet in stylesheets %}
             <link type="text/css" href="{{ stylesheet }}" rel="stylesheet">
@@ -22,3 +24,4 @@
 {% endfor %}
 
 {% include 'header/sidebar.twig' %}
+{% include 'content/notification.twig' %}

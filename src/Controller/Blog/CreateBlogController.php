@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Controller;
+namespace Controller\Blog;
 
 use Core\Request\Request;
 use Database\Config\EntityManagerConfig;
@@ -13,6 +13,7 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\ORM\TransactionRequiredException;
 use JetBrains\PhpStorm\ArrayShape;
+use Model\Blog\BlogModel;
 use View\Blog\BlogView;
 use View\Blog\PostNotFoundException;
 use View\Home\HomeView;
@@ -25,9 +26,11 @@ class CreateBlogController
     public function __construct()
     {
         $entityManager = (new EntityManagerConfig)->createEntityManager();
-        $requestData = (new Request())->getRequestData();
+        $request = new Request();
+        $blogModel = new BlogModel();
+        $blogModel->loadData($request->getRequestData());
 
-        CreateBlogController::createBlogPost($entityManager, $requestData['title'], $requestData['text']);
+        CreateBlogController::createBlogPost($entityManager, $blogModel->getTitle(), $blogModel->getText());
 
         $twig = new Twig();
         $twig->renderView(BlogView::class, [

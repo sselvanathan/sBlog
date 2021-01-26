@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace View;
 
+use JetBrains\PhpStorm\ArrayShape;
+
 abstract class View
 {
-    abstract function getTemplateName(): string;
+    abstract public function getTemplateName(): string;
 
-    abstract function getTemplateData(?array $params): ?array;
+    abstract public function getTemplateData(?array $params): ?array;
 
-    abstract protected function jsFiles(): array;
+    #[ArrayShape(["scripts" => "array"])] abstract protected function jsFiles(): array;
 
-    abstract protected function cssFiles(): array;
+    #[ArrayShape(["stylesheets" => "array"])] abstract protected function cssFiles(): array;
 }

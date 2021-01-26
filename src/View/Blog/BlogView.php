@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace View\Blog;
 
-use Controller\CreateBlogController;
+use Controller\Blog\CreateBlogController;
 use Project\Config\Config;
 use JetBrains\PhpStorm\ArrayShape;
 use View\View;

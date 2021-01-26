@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-use Controller\CreateBlogController;
-use Controller\DeleteBlogController;
+use Controller\Blog\CreateBlogController;
+use Controller\Blog\DeleteBlogController;
+use Controller\User\LoginUserController;
+use Controller\User\RegisterUserController;
 use Core\Application\Application;
 use View\Blog\BlogView;
 use View\Create\CreateView;
